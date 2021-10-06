@@ -1,0 +1,46 @@
+/* table */
+.table-divided {
+	td {
+		background: transparent;
+	}
+} 
+.pagination {
+	margin-bottom: 0;
+	padding: 1.5rem;
+}
+.search {
+    position: relative;
+    width: $sub-menu-width;
+    border-radius: 20px;
+    background: rgb(211, 211, 211);
+
+    input {
+      border: initial;
+      background: transparent;
+      outline: initial !important;
+      padding: 0.5rem 1rem;
+      line-height: 1.75;
+      font-size: 0.8rem;
+      width: 93%;
+      color: black;
+    }    
+}
+.w-table-button {
+    width: 1.5rem;
+}
+.page-link {
+    padding: 10px 20px !important;
+    font-size: 15px !important;
+    color: #343a40 !important;
+}
+.page-item {
+    &.active {
+        .page-link {
+            background-color: #343a40 !important;
+            border-color: rgba(0, 0, 0, 0.753) !important;
+            color: white !important;
+        }
+    }
+}
+
+  

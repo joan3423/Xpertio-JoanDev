@@ -1,0 +1,44 @@
+[
+    {
+        "id": "1",
+        "nombre": "agustin",
+        "email": "agistinExample@gmail.com",
+        "telefono": "3178904510",
+        "contraseña": "55555"
+    },
+    {
+        "id": "2",
+        "nombre": "agustin",
+        "email": "agistinExample@gmail.com",
+        "telefono": "3178904510",
+        "contraseña": "55555"
+    },
+    {
+        "id": "3",
+        "nombre": "agustin",
+        "email": "agistinExample@gmail.com",
+        "telefono": "3178904510",
+        "contraseña": "55555"
+    },
+    {
+        "id": "4",
+        "nombre": "mario",
+        "email": "marioExample@gmail.com",
+        "telefono": "3178904510",
+        "contraseña": "111111"
+    },
+    {
+        "id": "5",
+        "nombre": "mario",
+        "email": "marioExample@gmail.com",
+        "telefono": "3178904510",
+        "contraseña": "111111"
+    },
+    {
+        "id": "6",
+        "nombre": "wario",
+        "email": "marioExample@gmail.com",
+        "telefono": "3178904510",
+        "contraseña": "111111"
+    }
+]

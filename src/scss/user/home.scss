@@ -1,0 +1,41 @@
+.max-z {
+    z-index: 2;
+    min-height: calc(350px + 5vw);
+}
+.hight-rounded-right {
+    border-top-right-radius: 1rem !important;
+    border-bottom-right-radius: 1rem !important
+}
+.hight-rounded {
+    border-radius: 1rem !important;
+}
+.end-absolute-button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: white;
+}
+.border-bottom-radius {
+    border-bottom-left-radius: 1rem !important;
+    border-bottom-right-radius: 1rem !important;
+}
+.absolute-checkbox {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    right: 0;
+    width: 30px;
+    height: 100%;
+    z-index: 2;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.gradient-fixed {
+    background:  -webkit-gradient(linear,  right top,  left top,  from(#4650dd),  to(#1d26a0)) !important;
+    background:  -webkit-linear-gradient(right,  #4650dd,  #1d26a0) !important;
+    background:  linear-gradient(to left,  #4650dd,  #1d26a0) !important;
+    color: white;
+}

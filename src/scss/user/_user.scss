@@ -1,0 +1,16 @@
+@import "./user-variables";
+@import "./home.scss";
+@import "./login-register.scss";
+@import "./reusables-components/modal.scss";
+@import "./reusables-components/global-table.scss";
+
+$gradientColors: map-merge($map1: $theme-colors, $map2: $colors);
+@each $color,
+$value in $gradientColors {
+  .landing-gradient-#{$color} {
+    background: linear-gradient(to left, $value, darken($value, 20%)) !important;
+  }
+}
+
+
+

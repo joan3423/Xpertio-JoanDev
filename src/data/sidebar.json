@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Reporte de gastos",
+    "items": [
+      {
+        "name": "Reporte De gastos",
+        "link": "/LandingZone/procesosLegales/ReporteGastos",
+        "icon": "delivery-truck-1"
+      }
+    ]
+  }
+]
