@@ -50,7 +50,7 @@ export default function Sidebar({ sidebarShrink, pageProps }) {
                     <li key={item.name} className="sidebar-list-item">
                       <ActiveLink href={item.link} activeClassName="active">
                         <a
-                          className={`sidebar-link text-muted pe-3 ps-3 pt-4 pb-4 ${activeParent === item.name ? "active" : ""
+                          className={`sidebar-link text-muted pr-3 pl-3 pt-4 pb-4 ${activeParent === item.name ? "active" : ""
                             }`}
                           onClick={(e) =>
                             item.links

@@ -1,4 +1,139 @@
-/* table */
+/*
+* ==========================================================
+*     DataTable
+* ==========================================================
+*/
+
+.dataTable-bottom {
+
+	padding: 8px 10px;
+
+	>nav {
+		&:first-child {
+			float: left;
+		}
+
+		&:last-child {
+			float: right;
+		}
+	}
+
+	>div {
+		&:first-child {
+			float: left;
+		}
+
+		&:last-child {
+			float: right;
+		}
+	}
+
+	&::after {
+		display: table;
+		clear: both;
+		content: " ";
+	}
+}
+
+.card-table {
+	.dataTable-wrapper {
+		background: $gray-100;
+	}
+	.dataTable-top {
+		padding: 2rem 2rem;
+		background: $gray-100;
+	}
+	.dataTable-table {
+		background: $white;
+		>thead {
+			>tr {
+				>td {
+					padding-top: $spacer * 1.5;
+					padding-bottom: $spacer * 1.5;
+					vertical-align: top;
+				}
+				>th {
+					padding-top: $spacer * 1.5;
+					padding-bottom: $spacer * 1.5;
+					text-align: left;
+					vertical-align: top;
+					vertical-align: bottom;
+					border-bottom: 1px solid #d9d9d9;
+				}
+			}
+		}
+	}
+	.dataTable-sorter {
+		&::before {
+			opacity: 0.4;
+			border-top: 4px solid $white;
+		}
+
+		&::after {
+			opacity: 0.4;
+			border-bottom: 4px solid $white;
+		}
+	}
+	.dataTable-bottom {
+		padding: 2rem;
+		background: $gray-100;
+	}
+
+}
+.dataTable-sorter {
+	position: relative;
+	&::before {
+		position: absolute;
+		margin-top: 5px;
+		margin-right: 5px;
+		right: 4px;
+		top: 50%;
+		width: 0;
+		height: 0;
+		content: "";
+		opacity: 0.2;
+		border-top: 6px solid #000;
+		border-right: 6px solid transparent;
+		border-left: 6px solid transparent;
+	}
+	&::after {
+		position: absolute;
+		margin-top: -5px;
+		margin-right: 5px;
+		right: 4px;
+		width: 0;
+		height: 0;
+		content: "";
+		opacity: 0.2;
+		border-top: 6px solid transparent;
+		border-right: 6px solid transparent;
+		border-bottom: 6px solid #000;
+		border-left: 6px solid transparent;
+	}
+}
+.sorted-asc {
+    &.dataTable-sorter {
+		&::after {
+			opacity: 1;
+			border-bottom: 4px solid white !important;
+		}
+	}
+}
+.sorted-desc {
+    &.dataTable-sorter {
+		&::before {
+			opacity: 1;
+			border-top: 4px solid white !important;
+		}
+	}
+}
+.border-search-bottom{
+	border-bottom: 0.5px solid rgba(255, 255, 255, 0.315);
+}
+.dataTables-empty {
+	text-align: center;
+}
+
 .table-divided {
 	td {
 		background: transparent;
@@ -43,7 +178,34 @@
     }
 }
 .d-none-md {
-    
+    @include media-breakpoint-down(md) {
+        display: none;
+    }
 }
+.d-none-sm {
+    @include media-breakpoint-down(sm) {
+        display: none;
+    }
+}
+.d-none-smax {
+    @include media-breakpoint-up(sm) {
+        display: none !important;
+    }
+}
+.responsive-table {
+    @include media-breakpoint-down(md) {
+        table {
+            width: 100%;
+            tr{
+                width: 100%;
+            }
+            td {
+                width: 100%;
+            }
+        }
+    }
+}
+
+
 
   

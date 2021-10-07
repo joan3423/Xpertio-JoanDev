@@ -47,38 +47,47 @@ function Table({ columns, allData, defaultPageSize = 5, buttonActivator }) {
 
 
     return (
-        <Card className="card-table">
+        <Card className="card-table responsive-table">
             <table
                 {...getTableProps()}
                 className="r-table table"
             >
                 <thead>
-                    <tr className="progress-banner tl-radius-table tr-radius-table h-100">
+                    <tr className="progress-banner tl-radius-table tr-radius-table h-100 border-search-bottom">
                         <th className="tl-radius-table">
                             {buttonActivator}
+                            <SearchTable classPropertie="d-none-smax" setSearch={setSearch} />
                         </th>
-                        <th colSpan="2" className={`"tr-radius-table p-3"`}>
-                            <SearchTable setSearch={setSearch}/>
+                        <th colSpan="2" className="tr-radius-table d-none-sm">
+                            <SearchTable setSearch={setSearch} />
                         </th>
                     </tr>
                     {headerGroups.map((headerGroup) => (
                         <tr {...headerGroup.getHeaderGroupProps()} className="progress-banner bl-radius-table br-radius-table h-100">
-                            {headerGroup.headers.map((column, columnIndex) => {
-                                return (
-                                    <th
-                                        key={`th_${columnIndex}`}
-                                        className={
-                                            `
+                            {headerGroup.headers.map((column, columnIndex) => (
+                                <th
+                                    key={`th_${columnIndex}`}
+                                    {...column.getHeaderProps(column.getSortByToggleProps())}
+                                    className={
+                                        `${column.isSorted
+                                            ? column.isSortedDesc
+                                                ? 'sorted-desc'
+                                                : 'sorted-asc'
+                                            : ''
+                                        } 
                                         ${columnIndex === 0 && 'bl-radius-table'}
                                         ${columnIndex === headerGroup.headers.length && 'br-radius-table'}
-                                        text-white h-100`
-                                        }
-                                    >
-                                        {column.render('Header')}
-                                        <span />
-                                    </th>
-                                )
-                            })}
+                                        ${columnIndex === 1 && 'd-none-sm '}
+                                        ${columnIndex > 1 && 'd-none-md '}
+                                        text-white h-100
+                                        dataTable-sorter
+                                        `
+                                    }
+                                >
+                                    {column.render('Header')}
+                                    <span />
+                                </th>
+                            ))}
                         </tr>
                     ))}
                 </thead>
@@ -88,20 +97,20 @@ function Table({ columns, allData, defaultPageSize = 5, buttonActivator }) {
                         prepareRow(row);
                         return (
                             <tr onClick={() => (row.original.id)} {...row.getRowProps()} className="pointer-selector-normal">
-                                {row.cells.map((cell, cellIndex) => {
-                                    return (
-                                        <td
-                                            key={`td_${cellIndex}`}
-                                            {...cell.getCellProps({
-                                                className: `${cell.column.cellClass} `,
-                                            })}
-
-                                            className=""
-                                        >
-                                            {cell.render('Cell')}
-                                        </td>
-                                    )
-                                })}
+                                {row.cells.map((cell, cellIndex) => (
+                                    <td
+                                        key={`td_${cellIndex}`}
+                                        {...cell.getCellProps({
+                                            className: `${cell.column.cellClass} `,
+                                        })}
+                                        className={`
+                                            ${cellIndex > 1 && 'd-none-md '}
+                                            ${cellIndex === 1 && 'd-none-sm '}
+                                            `}
+                                    >
+                                        {cell.render('Cell')}
+                                    </td>
+                                ))}
                             </tr>
                         );
                     })}

@@ -129,10 +129,7 @@ const DataTablePagination = ({
           <Pagination.Last 
           onClick={() => {
             if (!canNext) return;
-
             changePage(page = endPage);
-            console.log(page)
-            
           }}
           />
         </Pagination>
