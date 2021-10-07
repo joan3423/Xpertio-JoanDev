@@ -16,6 +16,9 @@ const DataTablePagination = ({
   paginationMaxSize,
 }) => {
   const [pageState, setPageState] = useState(page);
+  const [startNumber, setStartNumber] = useState(0)
+  const [endNumber, setendNumber] = useState(5)
+  const [maxNumber , setMaxNumber] = useState(6)
 
   useEffect(() => {
     setPageState(page);
@@ -37,17 +40,18 @@ const DataTablePagination = ({
     }
   };
 
+  let pageButtons = [];
+  const totalPages = pages;
+  let endPage = pages;
+  const currentPage = pageState;
+  let startPage = 0;
+  const maxSize = paginationMaxSize;
+
   const pageClick = (pageIndex) => {
     changePage(pageIndex);
   };
 
   const renderPages = () => {
-    const totalPages = pages;
-    let endPage = pages;
-    const currentPage = pageState;
-    let startPage = 0;
-    const maxSize = paginationMaxSize;
-
     if (maxSize) {
       if (endPage > maxSize) {
         startPage = Math.max(currentPage + 1 - Math.floor(maxSize / 2), 1);
@@ -59,12 +63,31 @@ const DataTablePagination = ({
         startPage -= 1;
       }
     }
-    const pageButtons = [];
-    for (let i = startPage; i < endPage; i += 1) {
-      const active = currentPage === i;
-      pageButtons.push(
-          <Pagination.Next key={i} active={active} onClick={() => pageClick(i)}>{i + 1}</Pagination.Next>
-      );
+    for (let i = startNumber; i < endNumber; i += 1) {
+      const a = i + 1;
+      while (a <= endPage) {
+        const active = currentPage === i;
+        if (page > endNumber - 1) {
+          setStartNumber(startNumber + 5)
+          setendNumber(endNumber + 5)
+          setMaxNumber(maxNumber + 5)
+          changePage(page)
+          pageButtons = pageButtons.splice(0, pageButtons.length);
+        } else if (page < startNumber) {
+          setStartNumber(startNumber - 5)
+          setendNumber(endNumber - 5)
+          setMaxNumber(maxNumber - 5)
+          changePage(page)
+          pageButtons = pageButtons.splice(0, pageButtons.length);
+        }
+        pageButtons.push(
+          <Pagination.Next key={i} active={active} onClick={() => pageClick(i)}>
+            {i + 1}
+          </Pagination.Next>
+        );
+        break;
+      }
+
     }
     return pageButtons;
   };
@@ -78,9 +101,15 @@ const DataTablePagination = ({
           size="sm"
           aria-label="Page navigation example"
         >
+          <Pagination.First 
+          onClick={() => {
+            if (!canPrevious) return;
+            changePage(page = 0);
+          }}
+          />
           <Pagination.Prev
             className="prev"
-            style={{fontSize: "40px"}}
+            style={{ fontSize: "40px" }}
             onClick={() => {
               if (!canPrevious) return;
               changePage(page - 1);
@@ -96,6 +125,15 @@ const DataTablePagination = ({
               changePage(page + 1);
             }}
             disabled={!canNext}
+          />
+          <Pagination.Last 
+          onClick={() => {
+            if (!canNext) return;
+
+            changePage(page = endPage);
+            console.log(page)
+            
+          }}
           />
         </Pagination>
       </div>
