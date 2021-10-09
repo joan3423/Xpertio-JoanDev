@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react"
+import { Badge, Collapse } from "react-bootstrap"
 import Icon from "../components/Icon"
 import Router from "next/router"
 import data from "../data/sidebar.json"
 import { useRouter } from "next/router"
 import ActiveLink from "../components/ActiveLink"
+
 export default function Sidebar({ sidebarShrink, pageProps }) {
   const [dropdown, setDropdown] = useState({})
   const [activeParent, setActiveParent] = useState()
@@ -50,7 +52,7 @@ export default function Sidebar({ sidebarShrink, pageProps }) {
                     <li key={item.name} className="sidebar-list-item">
                       <ActiveLink href={item.link} activeClassName="active">
                         <a
-                          className={`sidebar-link text-muted pr-3 pl-3 pt-4 pb-4 ${activeParent === item.name ? "active" : ""
+                          className={`sidebar-link text-muted pr-3 pl-3 pt-3 pb-3 ${activeParent === item.name ? "active" : ""
                             }`}
                           onClick={(e) =>
                             item.links
@@ -67,32 +69,32 @@ export default function Sidebar({ sidebarShrink, pageProps }) {
                           <span className="sidebar-link-title">{item.name}</span>
                         </a>
                       </ActiveLink>
-                      { /* {item.links && (
-                  <Collapse in={dropdown[item.name]}>
-                    <ul className="sidebar-menu list-unstyled">
-                      {item.links.map((link) => (
-                        <li key={link.name} className="sidebar-list-item">
-                          <ActiveLink href={link.link} activeClassName="active">
-                            <a
-                              className="sidebar-link text-muted"
-                              onClick={() => setActiveParent(item.name)}
-                            >
-                              {link.name}
-                              {link.new && (
-                                <Badge
-                                  bg="info"
-                                  className="ms-2 text-decoration-none"
-                                >
-                                  New
-                                </Badge>
-                              )}
-                            </a>
-                          </ActiveLink>
-                        </li>
-                      ))}
-                    </ul>
-                  </Collapse>
-                )} */}
+                      {item.links && (
+                        <Collapse in={dropdown[item.name]}>
+                          <ul className="sidebar-menu list-unstyled">
+                            {item.links.map((link) => (
+                              <li key={link.name} className="sidebar-list-item">
+                                <ActiveLink href={link.link} activeClassName="active">
+                                  <a
+                                    className="sidebar-link text-muted"
+                                    onClick={() => setActiveParent(item.name)}
+                                  >
+                                    {link.name}
+                                    {link.new && (
+                                      <Badge
+                                        bg="info"
+                                        className="ms-2 text-decoration-none"
+                                      >
+                                        New
+                                      </Badge>
+                                    )}
+                                  </a>
+                                </ActiveLink>
+                              </li>
+                            ))}
+                          </ul>
+                        </Collapse>
+                      )}
                     </li>
                   ))}
                 </ul>

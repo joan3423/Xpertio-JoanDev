@@ -3,83 +3,6 @@
 *     DataTable
 * ==========================================================
 */
-
-.dataTable-bottom {
-
-	padding: 8px 10px;
-
-	>nav {
-		&:first-child {
-			float: left;
-		}
-
-		&:last-child {
-			float: right;
-		}
-	}
-
-	>div {
-		&:first-child {
-			float: left;
-		}
-
-		&:last-child {
-			float: right;
-		}
-	}
-
-	&::after {
-		display: table;
-		clear: both;
-		content: " ";
-	}
-}
-
-.card-table {
-	.dataTable-wrapper {
-		background: $gray-100;
-	}
-	.dataTable-top {
-		padding: 2rem 2rem;
-		background: $gray-100;
-	}
-	.dataTable-table {
-		background: $white;
-		>thead {
-			>tr {
-				>td {
-					padding-top: $spacer * 1.5;
-					padding-bottom: $spacer * 1.5;
-					vertical-align: top;
-				}
-				>th {
-					padding-top: $spacer * 1.5;
-					padding-bottom: $spacer * 1.5;
-					text-align: left;
-					vertical-align: top;
-					vertical-align: bottom;
-					border-bottom: 1px solid #d9d9d9;
-				}
-			}
-		}
-	}
-	.dataTable-sorter {
-		&::before {
-			opacity: 0.4;
-			border-top: 4px solid $white;
-		}
-
-		&::after {
-			opacity: 0.4;
-			border-bottom: 4px solid $white;
-		}
-	}
-	.dataTable-bottom {
-		padding: 2rem;
-		background: $gray-100;
-	}
-
-}
 .dataTable-sorter {
 	position: relative;
 	&::before {
@@ -127,18 +50,18 @@
 		}
 	}
 }
+.tr-pointer-selector {
+    cursor: pointer;
+    &:hover {
+        background-color: rgba(185, 185, 185, 0.493);
+    }
+    td {
+        padding: $spacer * 1.5;
+    }
+}
 .border-search-bottom{
 	border-bottom: 0.5px solid rgba(255, 255, 255, 0.315);
 }
-.dataTables-empty {
-	text-align: center;
-}
-
-.table-divided {
-	td {
-		background: transparent;
-	}
-} 
 .pagination {
 	margin-bottom: 0;
 	padding: 1.5rem;
@@ -171,8 +94,8 @@
 .page-item {
     &.active {
         .page-link {
-            background-color: #343a40 !important;
-            border-color: rgba(0, 0, 0, 0.753) !important;
+            background-color: $gray-800 !important;
+            border-color: $gray-800 !important;
             color: white !important;
         }
     }
@@ -205,6 +128,7 @@
         }
     }
 }
+
 
 
 

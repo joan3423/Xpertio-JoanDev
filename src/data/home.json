@@ -6,32 +6,38 @@
                 {
                     "id": "1",
                     "name": "Logistica",
-                    "type": "data"
+                    "type": "data",
+                    "link": "/LandingZone/procesosLegales/ReporteGastos"
                 },
                 {
                     "id": "2",
-                    "name": "Procesos Legales",
-                    "type": "work-orders"
+                    "name": "Reporte de gastos",
+                    "type": "work-orders",
+                    "link": "/LandingZone/procesosLegales/ReporteGastos"
                 },
                 {
                     "id": "3",
                     "name": "Maestras",
-                    "type": "open-cases"
+                    "type": "open-cases",
+                    "link": "/LandingZone/procesosLegales/ReporteGastos"
                 },
                 {
                     "id": "4",
                     "name": "Ejemplo",
-                    "type": "data"
+                    "type": "data",
+                    "link": "/LandingZone/procesosLegales/ReporteGastos"
                 },
                 {
                     "id": "5",
                     "name": "Ejemplo",
-                    "type": "data"
+                    "type": "data",
+                    "link": "/LandingZone/procesosLegales/ReporteGastos"
                 },
                 {
                     "id": "6",
                     "name": "Ejemplo",
-                    "type": "data"
+                    "type": "data",
+                    "link": "/LandingZone/procesosLegales/ReporteGastos"
                 }
             ]
         },

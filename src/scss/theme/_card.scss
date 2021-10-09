@@ -89,8 +89,32 @@
         }
     }
 
+    .table-pagination {
+        padding-top: $spacer * 1.5;
+        padding-bottom: $spacer * 1.5;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        color: $white;
+        border-bottom-width: 0;
+        background: $gray-800;
+        font-size: 13px;
+    }
 
+    .dataTable-sorter {
+		&::before {
+			opacity: 0.4;
+			border-top: 4px solid $white;
+		}
 
+		&::after {
+			opacity: 0.4;
+			border-bottom: 4px solid $white;
+		}
+	}
+
+    .table {
+        margin-bottom: 0px !important;
+    }
 
     .table tr td:first-child,
     .table tr th:first-child {

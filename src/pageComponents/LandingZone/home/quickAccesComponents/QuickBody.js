@@ -1,7 +1,7 @@
 import React from "react"
 import { Button } from "react-bootstrap"
 import { connect } from "react-redux"
-import { faListOl, faMinusCircle } from "@fortawesome/free-solid-svg-icons"
+import { faMinusCircle } from "@fortawesome/free-solid-svg-icons"
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Link from "next/dist/client/link"

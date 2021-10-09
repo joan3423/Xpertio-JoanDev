@@ -8,37 +8,22 @@ import {
 const DataTablePagination = ({
   page,
   pages,
+  pageState,
+  setPageState,
   canPrevious,
   canNext,
-  defaultPageSize,
-  onPageChange,
-  onPageSizeChange,
+  changePage,
   paginationMaxSize,
 }) => {
-  const [pageState, setPageState] = useState(page);
-  const [startNumber, setStartNumber] = useState(0)
+  
   const [endNumber, setendNumber] = useState(5)
-  const [maxNumber , setMaxNumber] = useState(6)
+  const [maxNumber, setMaxNumber] = useState(6)
+  const [startNumber, setStartNumber] = useState(0)
 
   useEffect(() => {
+    console.log(pageState)
     setPageState(page);
   }, [page]);
-  const getSafePage = (_page) => {
-    let p = _page;
-    if (Number.isNaN(_page)) {
-      p = page;
-    }
-    return Math.min(Math.max(p, 0), pages - 1);
-  };
-
-  const changePage = (_page) => {
-    const p = getSafePage(_page);
-
-    if (p !== pageState) {
-      setPageState(p);
-      onPageChange(p);
-    }
-  };
 
   let pageButtons = [];
   const totalPages = pages;
@@ -67,13 +52,13 @@ const DataTablePagination = ({
       const a = i + 1;
       while (a <= endPage) {
         const active = currentPage === i;
-        if (page > endNumber - 1) {
+        if (pageState > endNumber - 1) {
           setStartNumber(startNumber + 5)
           setendNumber(endNumber + 5)
           setMaxNumber(maxNumber + 5)
           changePage(page)
           pageButtons = pageButtons.splice(0, pageButtons.length);
-        } else if (page < startNumber) {
+        } else if (pageState < startNumber) {
           setStartNumber(startNumber - 5)
           setendNumber(endNumber - 5)
           setMaxNumber(maxNumber - 5)
@@ -94,18 +79,17 @@ const DataTablePagination = ({
 
   return (
     <>
-      <div className="text-center progress-banner br-radius-table h-100 
-      bl-radius-table tr-radius-table tl-radius-table">
+      <div className="text-center h-100 table-pagination">
         <Pagination
           className="d-flex justify-content-center"
           size="sm"
           aria-label="Page navigation example"
         >
-          <Pagination.First 
-          onClick={() => {
-            if (!canPrevious) return;
-            changePage(page = 0);
-          }}
+          <Pagination.First
+            onClick={() => {
+              if (!canPrevious) return;
+              changePage(0);
+            }}
           />
           <Pagination.Prev
             className="prev"
@@ -126,11 +110,11 @@ const DataTablePagination = ({
             }}
             disabled={!canNext}
           />
-          <Pagination.Last 
-          onClick={() => {
-            if (!canNext) return;
-            changePage(page = endPage);
-          }}
+          <Pagination.Last
+            onClick={() => {
+              if (!canNext) return;
+              changePage(endPage);
+            }}
           />
         </Pagination>
       </div>

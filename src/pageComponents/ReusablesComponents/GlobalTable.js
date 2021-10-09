@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Card } from 'react-bootstrap';
 import { useTable, usePagination, useSortBy } from 'react-table';
 import DatatablePagination from './globalTableProperties/Pagination';
-import SearchTable from './globalTableProperties/Search';
+import TableContent from './globalTableProperties/TableContent';
 
 function Table({ columns, allData, defaultPageSize = 5, buttonActivator }) {
+
     const [search, setSearch] = useState("");
     const [data, setAllData] = useState(allData)
+
     useEffect(() => {
         const thefilter = allData.filter((itemsFiltered) => {
             const newArray = Object.values(itemsFiltered);
@@ -44,90 +46,49 @@ function Table({ columns, allData, defaultPageSize = 5, buttonActivator }) {
         useSortBy,
         usePagination
     );
+    /* pagination */
+    
+    const [pageState, setPageState] = useState(page);
 
-
+    const getSafePage = (_page) => {
+        let p = _page;
+        if (Number.isNaN(_page)) {
+          p = page;
+        }
+        return Math.min(Math.max(p, 0), pageCount - 1);
+      };
+    const changePage = (_page) => {
+        const p = getSafePage(_page);
+    
+        if (p !== pageState) {
+          setPageState(p);
+          gotoPage(p);
+        }
+      };
+    
     return (
         <Card className="card-table responsive-table">
-            <table
-                {...getTableProps()}
-                className="r-table table"
-            >
-                <thead>
-                    <tr className="progress-banner tl-radius-table tr-radius-table h-100 border-search-bottom">
-                        <th className="tl-radius-table">
-                            {buttonActivator}
-                            <SearchTable classPropertie="d-none-smax" setSearch={setSearch} />
-                        </th>
-                        <th colSpan="2" className="tr-radius-table d-none-sm">
-                            <SearchTable setSearch={setSearch} />
-                        </th>
-                    </tr>
-                    {headerGroups.map((headerGroup) => (
-                        <tr {...headerGroup.getHeaderGroupProps()} className="progress-banner bl-radius-table br-radius-table h-100">
-                            {headerGroup.headers.map((column, columnIndex) => (
-                                <th
-                                    key={`th_${columnIndex}`}
-                                    {...column.getHeaderProps(column.getSortByToggleProps())}
-                                    className={
-                                        `${column.isSorted
-                                            ? column.isSortedDesc
-                                                ? 'sorted-desc'
-                                                : 'sorted-asc'
-                                            : ''
-                                        } 
-                                        ${columnIndex === 0 && 'bl-radius-table'}
-                                        ${columnIndex === headerGroup.headers.length && 'br-radius-table'}
-                                        ${columnIndex === 1 && 'd-none-sm '}
-                                        ${columnIndex > 1 && 'd-none-md '}
-                                        text-white h-100
-                                        dataTable-sorter
-                                        `
-                                    }
-                                >
-                                    {column.render('Header')}
-                                    <span />
-                                </th>
-                            ))}
-                        </tr>
-                    ))}
-                </thead>
-
-                <tbody {...getTableBodyProps()}>
-                    {page.map((row) => {
-                        prepareRow(row);
-                        return (
-                            <tr onClick={() => (row.original.id)} {...row.getRowProps()} className="pointer-selector-normal">
-                                {row.cells.map((cell, cellIndex) => (
-                                    <td
-                                        key={`td_${cellIndex}`}
-                                        {...cell.getCellProps({
-                                            className: `${cell.column.cellClass} `,
-                                        })}
-                                        className={`
-                                            ${cellIndex > 1 && 'd-none-md '}
-                                            ${cellIndex === 1 && 'd-none-sm '}
-                                            `}
-                                    >
-                                        {cell.render('Cell')}
-                                    </td>
-                                ))}
-                            </tr>
-                        );
-                    })}
-                </tbody>
-            </table>
-
+            <TableContent
+                page={page}
+                headerGroups={headerGroups}
+                buttonActivator={buttonActivator}
+                getTableProps={getTableProps}
+                getTableBodyProps={getTableBodyProps}
+                prepareRow={prepareRow}
+                setSearch={setSearch}
+                changePage={changePage}
+            />
             <DatatablePagination
                 page={pageIndex}
                 pages={pageCount}
+                pageState={pageState}
+                paginationMaxSize={pageCount}
                 canPrevious={canPreviousPage}
                 canNext={canNextPage}
                 defaultPageSize={pageSize}
-                onPageChange={(p) => gotoPage(p)}
-                onPageSizeChange={(s) => setPageSize(s)}
-                paginationMaxSize={pageCount}
+                setPageState={setPageState}
+                changePage={changePage}
             />
-
         </Card>
     );
 }

@@ -12,7 +12,6 @@ export async function getStaticProps() {
             hideHeader: false,
             hideFooter: true,
             hideSidebar: true,
-            currentSidebar: "Reporte de gastos",
         },
     }
 }

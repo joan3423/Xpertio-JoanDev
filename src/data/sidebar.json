@@ -6,6 +6,30 @@
         "name": "Reporte De gastos",
         "link": "/LandingZone/procesosLegales/ReporteGastos",
         "icon": "delivery-truck-1"
+      },
+      {
+        "name": "Gastos",
+        "icon": "delivery-truck-1",
+        "link": "/LandingZone/procesosLegales/ReporteGastos",
+        "links": [
+          {
+            "name": "Factura",
+            "link": "/LandingZone/procesosLegales/gastos/Factura"
+          },
+          {
+            "name": "Factura Regimen",
+            "link": "/LandingZone/procesosLegales/gastos/FacturaRegimen"
+          },
+
+          {
+            "name": "Cuenta de cobro",
+            "link": "/LandingZone/procesosLegales/gastos/CuentaCobro"
+          },
+          {
+            "name": "Recibo de caja",
+            "link": "/LandingZone/procesosLegales/gastos/ReciboCaja"
+          }
+        ]
       }
     ]
   }

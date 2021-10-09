@@ -22,6 +22,14 @@ const DataForm = ({ preventcharge, Link }) => (
             </div>
             <div className="form-floating mb-3">
                 <Form.Control
+                    id="razonSocial"
+                    type="text"
+                    placeholder="Ejemplo"
+                />
+                <Form.Label htmlFor="password">Representante legal</Form.Label>
+            </div>
+            <div className="form-floating mb-3">
+                <Form.Control
                     id="userEmail"
                     type="email"
                     placeholder="example@gmail.com"
