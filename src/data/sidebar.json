@@ -9,6 +9,17 @@
       },
       {
         "name": "Gastos",
+        "relation": "Reporte De gastos",
+        "link": "/LandingZone/procesosLegales/Gastos",
+        "icon": "delivery-truck-1"
+      }
+    ]
+  },
+  {
+    "name": "ejemplo",
+    "items": [
+      {
+        "name": "Gastos",
         "icon": "delivery-truck-1",
         "link": "/LandingZone/procesosLegales/ReporteGastos",
         "links": [
@@ -20,7 +31,6 @@
             "name": "Factura Regimen",
             "link": "/LandingZone/procesosLegales/gastos/FacturaRegimen"
           },
-
           {
             "name": "Cuenta de cobro",
             "link": "/LandingZone/procesosLegales/gastos/CuentaCobro"
@@ -30,6 +40,16 @@
             "link": "/LandingZone/procesosLegales/gastos/ReciboCaja"
           }
         ]
+      }
+    ]
+  },
+  {
+    "name": "unshowedobjects",
+    "items": [
+      {
+        "name": "Reporte De gastos",
+        "link": "/LandingZone/procesosLegales/Gastos",
+        "icon": "delivery-truck-1"
       }
     ]
   }

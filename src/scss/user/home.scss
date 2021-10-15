@@ -39,3 +39,16 @@
     background:  linear-gradient(to left,  #4650dd,  #1d26a0) !important;
     color: white;
 }
+.min-max-access {
+    tbody {
+        min-height: 150px;
+        max-height: 150px;
+        overflow: auto;
+        display: block;
+    }
+    tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
+}

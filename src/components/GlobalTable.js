@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card } from 'react-bootstrap';
 import { useTable, usePagination, useSortBy } from 'react-table';
+import ButtonFilters from './globalTableProperties/ButtonFilters';
 import DatatablePagination from './globalTableProperties/Pagination';
 import TableContent from './globalTableProperties/TableContent';
 
@@ -35,7 +36,6 @@ function Table({ columns, allData, defaultPageSize = 5, buttonActivator }) {
         canNextPage,
         pageCount,
         gotoPage,
-        setPageSize,
         state: { pageIndex, pageSize },
     } = useTable(
         {
@@ -47,31 +47,37 @@ function Table({ columns, allData, defaultPageSize = 5, buttonActivator }) {
         usePagination
     );
     /* pagination */
-    
+
     const [pageState, setPageState] = useState(page);
 
     const getSafePage = (_page) => {
         let p = _page;
         if (Number.isNaN(_page)) {
-          p = page;
+            p = page;
         }
         return Math.min(Math.max(p, 0), pageCount - 1);
-      };
+    };
     const changePage = (_page) => {
         const p = getSafePage(_page);
-    
+
         if (p !== pageState) {
-          setPageState(p);
-          gotoPage(p);
+            setPageState(p);
+            gotoPage(p);
         }
-      };
-    
+    };
+
     return (
-        <Card className="card-table responsive-table">
+        <Card className="responsive-table">
+            <ButtonFilters
+                buttonActivator={buttonActivator}
+                changePage={changePage}
+                setSearch={setSearch}
+            />
             <TableContent
                 page={page}
                 headerGroups={headerGroups}
                 buttonActivator={buttonActivator}
+                defaultPageSize={defaultPageSize}
                 getTableProps={getTableProps}
                 getTableBodyProps={getTableBodyProps}
                 prepareRow={prepareRow}

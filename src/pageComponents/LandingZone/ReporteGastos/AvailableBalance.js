@@ -3,7 +3,6 @@ import { Card, Col, Row } from "react-bootstrap"
 import {
     faDollarSign,
 } from "@fortawesome/free-solid-svg-icons"
-import { faClipboard } from "@fortawesome/free-regular-svg-icons"
 import Link from "next/dist/client/link"
 import Pill from "../../../components/Pill"
 

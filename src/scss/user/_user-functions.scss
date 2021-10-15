@@ -1,0 +1,22 @@
+$gradientColors: map-merge($map1: $theme-colors, $map2: $colors);
+@each $color,
+$value in $gradientColors {
+  .landing-gradient-#{$color} {
+    background: linear-gradient(to left, $value, darken($value, 20%)) !important;
+  }
+}
+
+@for $i from 0 through 3 {
+    .br-rtop-#{$i}{
+      border-top-right-radius: 0rem + $i !important;
+    }
+    .br-ltop-#{$i} {
+      border-top-left-radius: 0rem + $i  !important;
+    }
+    .br-rbottom-#{$i} {
+      border-bottom-right-radius: 0rem + $i  !important;
+    }
+    .br-lbottom-#{$i}  {
+      border-bottom-left-radius: 0rem + $i  !important;
+    }
+}

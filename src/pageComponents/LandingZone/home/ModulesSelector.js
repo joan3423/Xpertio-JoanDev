@@ -17,28 +17,26 @@ const ModulesSelector = ({ allData }) => (
                 let icon
                 switch (item.type) {
                     case "open-cases":
-                        color = "green"
+                        color = "yellow"
                         icon = faClipboard
                         break
                     case "work-orders":
-                        color = "blue"
+                        color = "yellow"
                         icon = faDollyFlatbed
                         break
                     case "new-invoices":
-                        color = "red"
+                        color = "yellow"
                         icon = faReceipt
                         break
                     default:
-                        color = "indigo"
+                        color = "yellow"
                         icon = faReceipt
                 }
                 return (
                     <Col style={{ cursor: 'pointer' }} xl={6} md={6} className="mb-4" key={index}>
                         <Link href={item.link}>
-                            <Card className="message px-1 py-3 bg-hover-gradient-primary">
-
-                                <Pill className="bg-transparent shadow-none w-100 py-3 px-1" data={item} icon={icon} color={color} fullHeight />
-
+                            <Card className="message px-1 py-1 bg-hover-gradient-primary">
+                                <Pill className="bg-transparent shadow-none w-100 py-1 px-1 flex-column justify-content-center" data={item} icon={icon} color={color} fullHeight />
                             </Card>
                         </Link>
                     </Col>

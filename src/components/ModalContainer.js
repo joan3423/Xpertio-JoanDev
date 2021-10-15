@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React from "react"
 import { Button, Modal } from "react-bootstrap"
 import { connect } from "react-redux"
-import { setState } from '../../redux/actions/main'
+import { setState } from '../redux/actions/main'
 
 
 const ModalContainer = (props) => {

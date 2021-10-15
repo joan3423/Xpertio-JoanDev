@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import { Col, Container } from "react-bootstrap"
-import QuickAccess from "../../pageComponents/LandingZone/home/QuickAccess"
 import ModulesSelector from "../../pageComponents/LandingZone/home/ModulesSelector"
 import QuickListData from "../../data/home.json"
+import History from "../../pageComponents/LandingZone/home/History"
 
 export async function getStaticProps() {
     return {
@@ -19,9 +19,9 @@ export default function Home() {
     const [allData, setAllData] = useState(QuickListData);
     return (
         <React.Fragment>
-            <Col xl={6} md={12} xs={12} className="d-flex align-items-center max-z position-relative p-0 m-0 landing-gradient-gray-dark hight-rounded-right">
+            <Col xl={6} md={12} xs={12} className="d-flex align-items-center max-z position-relative p-0 m-0 hight-rounded-right">
                 <Container fluid className="px-lg-4 px-xl-5 w-100 p-4">
-                    <QuickAccess
+                    <History
                         allData={allData}
                         setAllData={setAllData}
                         className="h-100"

@@ -21,7 +21,6 @@ const DataTablePagination = ({
   const [startNumber, setStartNumber] = useState(0)
 
   useEffect(() => {
-    console.log(pageState)
     setPageState(page);
   }, [page]);
 

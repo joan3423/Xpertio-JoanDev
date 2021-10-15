@@ -3,13 +3,10 @@ import "../scss/style.default.scss"
 import React from 'react'
 import { wrapper } from "../redux/store"
 import Layout from "./Layout"
-import ModalContainer from "../pageComponents/ReusablesComponents/ModalContainer"
 
 const MyApp = ({ Component, pageProps }) => (
     <Layout {...pageProps}>
-        <Component {...pageProps} >
-            <ModalContainer />
-        </Component>
+        <Component {...pageProps} />
     </Layout>
 )
 

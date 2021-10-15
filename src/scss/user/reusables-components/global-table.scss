@@ -3,6 +3,26 @@
 *     DataTable
 * ==========================================================
 */
+/* general styles */
+.responsive-table {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    .thead-2 {
+        background: $gray-800;
+    }
+    @include media-breakpoint-down(md) {
+        table {
+            width: 100%;
+            tr{
+                width: 100%;
+            }
+            td {
+                width: 100%;
+            }
+        }
+    }
+}
+
 .dataTable-sorter {
 	position: relative;
 	&::before {
@@ -53,7 +73,9 @@
 .tr-pointer-selector {
     cursor: pointer;
     &:hover {
-        background-color: rgba(185, 185, 185, 0.493);
+        td {
+            background-color: rgba(185, 185, 185, 0.493) !important;
+        }
     }
     td {
         padding: $spacer * 1.5;
@@ -70,7 +92,9 @@
     position: relative;
     width: $sub-menu-width;
     border-radius: 20px;
-    background: rgb(211, 211, 211);
+    background: rgb(255, 255, 255);
+    -webkit-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+    box-shadow: 0rem 0rem 1rem rgb(0 0 0 / 8%) !important;
 
     input {
       border: initial;
@@ -115,19 +139,7 @@
         display: none !important;
     }
 }
-.responsive-table {
-    @include media-breakpoint-down(md) {
-        table {
-            width: 100%;
-            tr{
-                width: 100%;
-            }
-            td {
-                width: 100%;
-            }
-        }
-    }
-}
+
 
 
 

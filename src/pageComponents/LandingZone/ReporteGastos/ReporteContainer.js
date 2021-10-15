@@ -1,29 +1,23 @@
 import React from 'react';
-import ModalContainer from '../../../pageComponents/ReusablesComponents/ModalContainer';
-import ReporteModal from '../../../pageComponents/LandingZone/ReporteGastos/ReporteModal';
-import { GlobalTable } from '../../../pageComponents/ReusablesComponents/GlobalTable';
+import { GlobalTable } from '../../../components/GlobalTable';
+import Link from 'next/dist/client/link';
+import { Button } from 'react-bootstrap';
+import ModalContainer from '../../../components/ModalContainer';
 
 const ReporteContainer = ({ UsersData }) => (
+    <>
+    <ModalContainer 
+    text="ejemplo"
+    ModalChildren="hola"
+    />
     <GlobalTable
         dataTable={UsersData.generalData}
         buttonActivator={
-            <ModalContainer
-                classNameVariant="icon text-white border-0 bg-blue w-100 hight-rounded"
-                ModalHeader="hola"
-                classNameIcon="ms-4"
-                text="Añadir"
-                cheifAction="registrar material"
-                ModalHeader="hola mundo"
-                ModalChildren={
-                    <ReporteModal
-                    />
-                }
-                ModalFooter={
-                    <div className="w-100 d-flex justify-content-center">
-                        esto es un ejemplo
-                    </div>
-                }
-            />
+            <Link href="/LandingZone/procesosLegales/Gastos">
+                <Button variant="primary" className="icon text-white border-0 bg-blue w-50 hight-rounded">
+                    Registrar nuevo gasto
+                </Button>
+            </Link>
         }
         colsComponent={
             [
@@ -48,5 +42,6 @@ const ReporteContainer = ({ UsersData }) => (
             ]
         }
     />
+    </>
 )
 export default ReporteContainer;

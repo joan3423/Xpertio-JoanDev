@@ -25,9 +25,9 @@ export default function Header({ setSidebarShrink, sidebarShrink }) {
           <FontAwesomeIcon icon={faAlignLeft} />
         </a>
         <Link href="/LandingZone/Home" passHref>
-          <h2 className="fw-bold text-uppercase mb-0">
-            <span className="d-none d-brand-partial">XPERTIO</span>
-          </h2>
+          <div className="cursor-pointer" style={{ width: '200px' }}>
+            <img src="/img/logo/Principal_pq.png" />
+          </div>
         </Link>
         <Navbar.Brand className="w-25">
           <Search />
