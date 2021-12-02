@@ -1,0 +1,15 @@
+.accordion-item {
+    border: none;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.1) !important;
+}
+.accordion-button {
+    background-color: transparent !important;
+    background: transparent !important;
+    &:focus {
+        box-shadow: none !important;
+    }
+    &:not(.collapsed) {
+        font-weight: 500 !important;
+        color: black !important;
+    }
+}

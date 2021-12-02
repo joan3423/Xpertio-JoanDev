@@ -1,0 +1,60 @@
+[
+    {
+        "id": "1",
+        "selected": true,
+        "role": "Administrador de logistica",
+        "permits": [
+            {
+                "permit": "materiales"
+            },
+            {
+                "permit": "traslados"
+            },
+            {
+                "permit": "gastos"
+            }
+        ]
+    },
+    {
+        "id": "2",
+        "role": "Administrador Total",
+        "permits": [
+            {
+                "permit": "materiales"
+            },
+            {
+                "permit": "traslados"
+            },
+            {
+                "permit": "gastos"
+            },
+            {
+                "permit": "usuarios"
+            },
+            {
+                "permit": "roles"
+            },
+            {
+                "permit": "Gastos"
+            }
+        ]
+    },
+    {
+        "id": "3",
+        "role": "Administrador de materiales",
+        "permits": [
+            {
+                "permit": "materiales"
+            }
+        ]
+    },
+    {
+        "id": "4",
+        "role": "Administrador de Traslados",
+        "permits": [
+            {
+                "permit": "traslados"
+            }
+        ]
+    }
+]

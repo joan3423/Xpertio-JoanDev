@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Card, Col, Container, Row } from "react-bootstrap";
-import DataForm from "../../pageComponents/Register/DataForm";
+import DataForm from "../../components/Register/DataForm";
 
 export async function getStaticProps() {
     return {

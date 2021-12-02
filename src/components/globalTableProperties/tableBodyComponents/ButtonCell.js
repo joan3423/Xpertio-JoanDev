@@ -9,13 +9,13 @@ const ButtonCell = ({
 }) => (
     <>
         <td
-            style={{ maxWidth: '200px' }}
+            style={{ maxWidth: '200px', minWidth: '200px' }}
             {...cell.getCellProps({
                 className: `${cell.column.cellClass} `,
             })}
             className={`
-            ${cellIndex > 1 && 'd-none-md '}
-            ${cellIndex === 1 && 'd-none-sm '}
+            ${cellIndex > 1 && 'd-none-md'}
+            ${cellIndex === 1 && 'd-none-sm'}
             text-center align-middle
             `}
         >

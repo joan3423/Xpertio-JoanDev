@@ -7,16 +7,56 @@ $value in $gradientColors {
 }
 
 @for $i from 0 through 3 {
-    .br-rtop-#{$i}{
-      border-top-right-radius: 0rem + $i !important;
+  .br-#{$i} {
+    border-radius: $i * 0.1rem !important;
+  }
+}
+
+@for $i from 0 through 10 {
+    .br-rtop-#{$i} {
+      border-top-right-radius: $i * 0.1rem !important;
     }
     .br-ltop-#{$i} {
-      border-top-left-radius: 0rem + $i  !important;
+      border-top-left-radius: $i * 0.1rem  !important;
     }
     .br-rbottom-#{$i} {
-      border-bottom-right-radius: 0rem + $i  !important;
+      border-bottom-right-radius: $i * 0.1rem  !important;
     }
     .br-lbottom-#{$i}  {
-      border-bottom-left-radius: 0rem + $i  !important;
+      border-bottom-left-radius: $i * 0.1rem  !important;
     }
+}
+
+@each $breakpoint, $grid-breakpoint in $grid-breakpoints {
+  @media all and (max-width: #{$grid-breakpoint}) {
+    @for $i from 0 through 3 {
+      .#{$breakpoint}-br-rtop-#{$i} {
+        border-top-right-radius: 0rem + $i !important;
+      }
+    }
+  }
+}
+
+@for $i from 1 through 6 {
+  .grid-steps-#{$i}{
+    display: grid;
+    @if $i == 1 {
+      grid-template-columns: 1fr;
+    }
+    @if $i == 2 {
+      grid-template-columns: 1fr 1fr;
+    }
+    @if $i == 3 {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    @if $i == 4 {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    @if $i == 5 {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+    @if $i == 6 {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+  }
 }

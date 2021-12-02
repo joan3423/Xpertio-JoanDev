@@ -7,148 +7,40 @@
                     "id": "1",
                     "name": "Logistica",
                     "type": "data",
-                    "link": "/LandingZone/procesosLegales/ReporteGastos"
+                    "link": "/Logistic/LogisticExample/"
                 },
                 {
                     "id": "2",
                     "name": "Reporte de gastos",
                     "type": "work-orders",
-                    "link": "/LandingZone/procesosLegales/ReporteGastos"
+                    "link": "/procesosLegales/Expenses/"
                 },
                 {
                     "id": "3",
                     "name": "Maestras",
                     "type": "open-cases",
-                    "link": "/LandingZone/procesosLegales/ReporteGastos"
+                    "link": "/Teachers/ViewUsers/"
                 },
                 {
                     "id": "4",
                     "name": "Ejemplo",
                     "type": "data",
-                    "link": "/LandingZone/procesosLegales/ReporteGastos"
+                    "link": "/Logistic/LogisticExample/"
                 },
                 {
                     "id": "5",
                     "name": "Ejemplo",
                     "type": "data",
-                    "link": "/LandingZone/procesosLegales/ReporteGastos"
+                    "link": "/Logistic/LogisticExample/"
                 },
                 {
                     "id": "6",
                     "name": "Ejemplo",
                     "type": "data",
-                    "link": "/LandingZone/procesosLegales/ReporteGastos"
+                    "link": "/Logistic/LogisticExample/"
                 }
             ]
         },
-        "currentAccordion": {
-            "key": 0,
-            "name": "selecciona",
-            "icon": null,
-            "color": null
-        },
-        "finallLink": {
-            "linkName": null,
-            "initialName": null,
-            "name": [],
-            "link": null,
-            "type": null
-        },
-        "options": [],
-        "moduleState": [
-            {
-                "id": 1,
-                "name": "logistica",
-                "linkName": "logistica",
-                "link": "/logistica",
-                "items": [
-                    {
-                        "id": 1,
-                        "name": "bodegas",
-                        "linkName": "bodegas",
-                        "link": "/LandingZone/procesosLegales/ReporteGastos",
-                        "type": "link",
-                        "haveChildren": "yes",
-                        "functionalities": [
-                            {
-                                "id": 2,
-                                "name": "registrar bodega",
-                                "linkName": "registrar bodega",    
-                                "link": "",                           
-                                "type": "action"
-                            },
-                            {
-                                "id": 3,
-                                "name": "mostrar bodegas",
-                                "linkName": "mostrar bodegas",
-                                "link": "/LandingZone/procesosLegales/ReporteGastos",                               
-                                "type": "action"
-                            }
-                        ]
-                    },
-                    {
-                        "id": 4,
-                        "name": "materiales",
-                        "linkName": "materiales",
-                        "link": "/logistica/materiales",
-                        "type": "link",
-                        "haveChildren": "yes",
-                        "functionalities": [
-                            {
-                                "id": 5,
-                                "name": "registrar material",
-                                "linkName": "registrar material",
-                                "link": "/LandingZone/procesosLegales/ReporteGastos",                               
-                                "type": "action"
-                            },
-                            {
-                                "id": 6,
-                                "name": "mostrar material",
-                                "linkName": "mostrar material",
-                                "link": "/LandingZone/procesosLegales/ReporteGastos",
-                                "type": "action"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "id": 7,
-                "name": "Procesos Legales",
-                "linkName": "procesosLegales",
-                "link": "/procesosLegales",
-                "items": [
-                    {
-                        "id": 8,
-                        "name": "registrar procesos",
-                        "linkName": "registros",
-                        "link": "/logistica/bodegas",
-                        "type": "link",
-                        "haveChildren": "yes",
-                        "functionalities": [
-                            {
-                                "id": 9,
-                                "name": "nose bodega",
-                                "linkName": "registrar bodega",
-                                "link": "/LandingZone/procesosLegales/ReporteGastos",
-                                "type": "action"
-                            }
-                        ]
-                    },
-                    {
-                        "id": 10,
-                        "name": "registrar material",
-                        "linkName": "mostrar",
-                        "link": "/LandingZone/procesosLegales/ReporteGastos",
-                        "type": "action",
-                        "haveChildren": "no"
-                    }
-                ]
-            }
-        ],
-        "quickAccessList": [
-
-        ],
         "simpleText": {
             "button": "Añadir Link",
             "buttonList": {

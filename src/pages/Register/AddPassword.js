@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Card, Col, Container, Row } from "react-bootstrap";
-import PasswordForm from "../../pageComponents/Register/PasswordForm";
+import PasswordForm from "../../components/Register/PasswordForm";
 
 export async function getStaticProps() {
     return {

@@ -15,12 +15,12 @@ module.exports = withPlugins(
   {
     images: {
       deviceSizes: [320, 480, 640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-      // loader: "imgix", // Uncomment this line for STATIC EXPORT
-      // path: "", // Uncomment this line for STATIC EXPORT
+      loader: "imgix", // Uncomment this line for STATIC EXPORT
+      path: "/", // Uncomment this line for STATIC EXPORT
     },
     env: {
-      production_type: "server", // Change variable to "static" for STATIC EXPORT
+      production_type: "static", // Change variable to "static" for STATIC EXPORT
     },
-    // trailingSlash: true // Uncomment this line for STATIC EXPORT
+     trailingSlash: true // Uncomment this line for STATIC EXPORT
   }
 )

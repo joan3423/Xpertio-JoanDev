@@ -1,5 +1,7 @@
 
+import { AllowedTo } from "react-abac";
 import { Container } from "react-bootstrap";
+import { connect } from 'react-redux';
 
 export async function getStaticProps() {
   return {
@@ -8,10 +10,20 @@ export async function getStaticProps() {
     },
   }
 }
-export default function Index() {
+function Index(props) {
+  const { permissions } = props
+  console.log(permissions)
   return (
-    <Container fluid className="px-lg-4 px-xl-5">
-      <div>hola</div>
-    </Container>
+    <AllowedTo perform={permissions.EDIT_POST}>
+      <Container fluid className="px-lg-4 px-xl-5">
+        <div>Esto solo lo podra ver un Admin</div>
+      </Container>
+    </AllowedTo>
   )
 }
+
+const mapStateToProps = state => ({
+  permissions: state.rolesreducer.permissions
+})
+
+export default connect(mapStateToProps)(Index);

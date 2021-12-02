@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import TableBody from './TableBody';
 import TableHead from './TableHead';
 
@@ -8,25 +8,51 @@ const TableContent = ({
     headerGroups,
     page,
     prepareRow,
-}) => (
-    <>
-        <table
-            {...getTableProps()}
-            className="r-table table bg-white br-lbottom-1 br-rbottom-1 br-rtop-1 br-ltop-1 shadow-lg"
-        >
-            <thead>
-                <TableHead 
-                    headerGroups={headerGroups}
-                />
-            </thead>
+    isCollapsible,
+    clickableZone,
+    clickFunction,
+    tableClasses,
+    tableHeader
+}) => {
 
-            <tbody {...getTableBodyProps()} className="">
-                <TableBody 
-                    page={page}
-                    prepareRow={prepareRow}
-                />
-            </tbody>
-        </table>
-    </>
-)
+    let rowsLength = headerGroups.map((headers) => {
+            return headers.headers.length
+        })
+
+    return (
+        <>
+            <table
+                {...getTableProps()}
+                className={` ${tableClasses ? tableClasses : "r-table table bg-white br-lbottom-5 br-rbottom-5 br-rtop-5 br-ltop-5 shadow-lg"}`}
+            >
+                <thead>
+                    <TableHead
+                    tableHeader={tableHeader}
+                    rowsLength={rowsLength}
+                        headerGroups={headerGroups}
+                    />
+                </thead>
+                {console.log(headerGroups)}
+                <tbody {...getTableBodyProps()}>
+                    {page.length === 0
+                        ?
+                        <tr>
+                            <th colSpan={rowsLength} className="p-5 text-center">
+                                No se a encontrado ningun registro
+                            </th>
+                        </tr>
+                        :
+                        <TableBody
+                            page={page}
+                            prepareRow={prepareRow}
+                            isCollapsible={isCollapsible}
+                            clickableZone={clickableZone}
+                            clickFunction={clickFunction}
+                        />
+                    }
+                </tbody>
+            </table>
+        </>
+    )
+}
 export default TableContent;

@@ -3,52 +3,91 @@
     "name": "Reporte de gastos",
     "items": [
       {
-        "name": "Reporte De gastos",
-        "link": "/LandingZone/procesosLegales/ReporteGastos",
-        "icon": "delivery-truck-1"
+        "name": "Reporte de gastos",
+        "link": "/",
+        "icon": "faDollarSign",
+        "links": [
+          {
+            "parent": "Reporte de gastos",
+            "name": "Registros",
+            "link": "/procesosLegales/Expenses/"
+          },
+          {
+            "parent": "Reporte de gastos",
+            "name": "Crear un registro",
+            "link": "/procesosLegales/ExpensesSteps/"
+          }
+        ]
       },
       {
-        "name": "Gastos",
-        "relation": "Reporte De gastos",
-        "link": "/LandingZone/procesosLegales/Gastos",
-        "icon": "delivery-truck-1"
+        "name": "Aprobación",
+        "link": "/procesosLegales/Approval/",
+        "icon": "faCheckCircle"
+      },
+      {
+        "name": "Ver Saldos",
+        "link": "/procesosLegales/Balances/",
+        "icon": "faCreditCard"
+      },
+      {
+        "name": "Historial",
+        "link": "/procesosLegales/History/",
+        "icon": "faHistory"
       }
     ]
   },
   {
-    "name": "ejemplo",
+    "name": "Teachers",
     "items": [
       {
-        "name": "Gastos",
-        "icon": "delivery-truck-1",
-        "link": "/LandingZone/procesosLegales/ReporteGastos",
-        "links": [
-          {
-            "name": "Factura",
-            "link": "/LandingZone/procesosLegales/gastos/Factura"
-          },
-          {
-            "name": "Factura Regimen",
-            "link": "/LandingZone/procesosLegales/gastos/FacturaRegimen"
-          },
-          {
-            "name": "Cuenta de cobro",
-            "link": "/LandingZone/procesosLegales/gastos/CuentaCobro"
-          },
-          {
-            "name": "Recibo de caja",
-            "link": "/LandingZone/procesosLegales/gastos/ReciboCaja"
-          }
-        ]
+        "name": "Users",
+        "link": "/Teachers/ViewUsers/",
+        "icon": "faUser"
+      },
+      {
+        "name": "Role",
+        "link": "/Teachers/ViewRoles/",
+        "icon": "faUserTie"
+      },
+      {
+        "name": "Charges",
+        "link": "/Teachers/ViewCharges/",
+        "icon": "faUsers"
       }
     ]
   },
+  {
+    "name": "Profile",
+    "items": [
+      {
+        "name": "Profile",
+        "link": "/profile/Home/",
+        "icon": "faUserAlt"
+      },
+      {
+        "name": "Movements",
+        "link": "/profile/Movements/",
+        "icon": "faHandHolding"
+      }
+    ]
+  },
+  {
+    "name": "Logistica",
+    "items": [
+      {
+        "name": "Ejemplo",
+        "link": "/Logistic/LogisticExample/",
+        "icon": "faShoppingBag"
+      }
+    ]
+  },
+
   {
     "name": "unshowedobjects",
     "items": [
       {
         "name": "Reporte De gastos",
-        "link": "/LandingZone/procesosLegales/Gastos",
+        "link": "/procesosLegales/ExpensesSteps/",
         "icon": "delivery-truck-1"
       }
     ]

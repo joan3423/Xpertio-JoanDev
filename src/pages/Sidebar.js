@@ -1,15 +1,22 @@
-import React, { useEffect, useState } from "react"
-import { Badge, Collapse } from "react-bootstrap"
-import Icon from "../components/Icon"
-import Router from "next/router"
-import data from "../data/sidebar.json"
-import { useRouter } from "next/router"
-import ActiveLink from "../components/ActiveLink"
+import React, { useEffect, useState } from "react";
+import { Badge, Collapse } from "react-bootstrap";
+import * as iconfort from "@fortawesome/free-solid-svg-icons";
+import Router from "next/router";
+import { useRouter } from "next/router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useAbac } from "react-abac";
+import { connect } from 'react-redux';
+import data from "../data/sidebar.json";
+import ActiveLink from "../components/ActiveLink";
 
-export default function Sidebar({ sidebarShrink, pageProps }) {
+
+function Sidebar({ 
+  sidebarShrink, 
+  pageProps,
+  permissions
+}) {
   const [dropdown, setDropdown] = useState({})
   const [activeParent, setActiveParent] = useState()
-  const [activeRelation, setActiveRelation] = useState()
   const router = useRouter()
   const toggleDropdown = (e, name) => {
     e && e.preventDefault()
@@ -21,7 +28,7 @@ export default function Sidebar({ sidebarShrink, pageProps }) {
       block.items.map((item) => {
         item.links &&
           item.links.map((link) => {
-            if (link.link && link.link === Router.route) {
+            if (link.link && link.link === Router.route + "/") {
               toggleDropdown(false, item.name)
               setActiveParent(item.name)
             }
@@ -38,6 +45,8 @@ export default function Sidebar({ sidebarShrink, pageProps }) {
     }
   }, [])
 
+  const { userHasPermissions } = useAbac();
+
   return (
     <div
       className={`sidebar py-3 ${sidebarShrink ? "shrink show" : ""}`}
@@ -51,64 +60,62 @@ export default function Sidebar({ sidebarShrink, pageProps }) {
                 <h6 className="sidebar-heading">{block.name}</h6>
                 <ul className="list-unstyled">
                   {block.items.map((item) => {
-                    useEffect(() => {
-                      if (item.relation) {
-                        setActiveRelation(item.relation)
-                      }
-                    }, [])
-                    console.log(activeParent)
                     return (
-                      <>
+                      <React.Fragment key={item.name}>
                         {!item.relation &&
-                          <li key={item.name} className="sidebar-list-item">
-                            <ActiveLink href={item.link} activeClassName="active">
-                              <a
-                                className={`sidebar-link text-muted pr-3 pl-3 pt-3 pb-3 
-                          ${item.name === activeParent || activeRelation === item.name ? "active" : ""}`}
-                                onClick={(e) =>
-                                  item.links
-                                    ? toggleDropdown(e, item.name)
-                                    : (setDropdown({}), setActiveParent(item.name), setActiveRelation())
-                                }
-                                data-bs-toggle={item.links && "collapse"}
-                                role={item.links && "button"}
-                                aria-expanded={dropdown[item.name]}
-                              >
-                                <div className={`p-2 border d-flex align-items-center justify-content-center shadow-lg rounded ${sidebarShrink ? "me-0" : "me-3"}`}>
-                                  <Icon className="svg-icon-md" icon={item.icon} />
-                                </div>
-                                <span className="sidebar-link-title">{item.name}</span>
-                              </a>
-                            </ActiveLink>
-                            {item.links && (
-                              <Collapse in={dropdown[item.name]}>
-                                <ul className="sidebar-menu list-unstyled">
-                                  {item.links.map((link) => (
-                                    <li key={link.name} className="sidebar-list-item">
-                                      <ActiveLink href={link.link} activeClassName="active">
-                                        <a
-                                          className="sidebar-link text-muted"
-                                          onClick={() => setActiveParent(item.name)}
-                                        >
-                                          {link.name}
-                                          {link.new && (
-                                            <Badge
-                                              bg="info"
-                                              className="ms-2 text-decoration-none"
+                          <>
+                            {permissions.EDIT_POST.find(permission => permission.module === item.name) &&
+                              <li className="sidebar-list-item">
+                                <ActiveLink href={item.link} activeClassName="active bg-dark">
+                                  <a
+                                    className={`sidebar-link text-muted pr-3 pl-3 pt-3 pb-3 
+                          ${activeParent === item.name ? "active" : ""}`}
+                                    onClick={(e) =>
+                                      item.links
+                                        ? toggleDropdown(e, item.name)
+                                        : (setDropdown({}), setActiveParent(item.name))
+                                    }
+                                    data-bs-toggle={item.links && "collapse"}
+                                    role={item.links && "button"}
+                                    aria-expanded={dropdown[item.name]}
+                                  >
+                                    <div className={`p-2 border d-flex align-items-center justify-content-center shadow-lg rounded ${sidebarShrink ? "me-0" : "me-3"}`}>
+                                      <FontAwesomeIcon style={{ minWidth: "20px" }} className="svg-icon-md" icon={iconfort[item.icon]} />
+                                    </div>
+                                    <span className="sidebar-link-title">{item.name}</span>
+                                  </a>
+                                </ActiveLink>
+                                {item.links && (
+                                  <Collapse in={dropdown[item.name]}>
+                                    <ul className="sidebar-menu list-unstyled">
+                                      {item.links.map((link) => (
+                                        <li key={link.name} className="sidebar-list-item">
+                                          <ActiveLink href={link.link} activeClassName="active bg-dark">
+                                            <a
+                                              className="sidebar-link text-muted"
+                                              onClick={() => setActiveParent(item.name)}
                                             >
-                                              New
-                                            </Badge>
-                                          )}
-                                        </a>
-                                      </ActiveLink>
-                                    </li>
-                                  ))}
-                                </ul>
-                              </Collapse>
-                            )}
-                          </li>
+                                              {link.name}
+                                              {link.new && (
+                                                <Badge
+                                                  bg="info"
+                                                  className="ms-2 text-decoration-none"
+                                                >
+                                                  New
+                                                </Badge>
+                                              )}
+                                            </a>
+                                          </ActiveLink>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </Collapse>
+                                )}
+                              </li>
+                            }
+                          </>
                         }
-                      </>
+                      </React.Fragment>
                     )
                   })}
                 </ul>
@@ -120,3 +127,9 @@ export default function Sidebar({ sidebarShrink, pageProps }) {
     </div>
   )
 }
+
+const mapStateToProps = state => ({
+  permissions: state.rolesreducer.permissions,
+})
+
+export default connect(mapStateToProps)(Sidebar);

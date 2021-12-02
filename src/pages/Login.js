@@ -1,6 +1,6 @@
 import { Container, Row } from "react-bootstrap"
-import FirstLoginSection from "../pageComponents/Login/FirstLoginSection"
-import SecondLoginSection from "../pageComponents/Login/SecondLoginSection"
+import FirstLoginSection from "../components/Login/FirstLoginSection"
+import SecondLoginSection from "../components/Login/SecondLoginSection"
 
 export async function getStaticProps() {
   return {

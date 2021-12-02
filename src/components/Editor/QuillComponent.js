@@ -1,20 +1,30 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef } from "react"
 import Quill from "quill"
 import "quill/dist/quill.bubble.css"
 import "quill/dist/quill.snow.css"
-export default function QuillComponent({ text, withEditor, className }) {
+export default function QuillComponent({ text, withEditor, className, readOnly, formValue, valueName }) {
+
   const editorContainerRef = useRef(false)
   const toolbarContainerRef = useRef(false)
+
   useEffect(() => {
     const quillFunc = new Quill(editorContainerRef.current, {
       modules: {
         toolbar: withEditor ? toolbarContainerRef.current : undefined,
       },
-      placeholder: "Compose an epic...",
+      placeholder: "Añade el texto...",
+      readOnly: readOnly,
       theme: withEditor ? "snow" : "bubble", // Specify theme in configuration
     })
+    quillFunc.on('text-change', function (delta, oldDelta, source) {
+      if (source == 'api') {
+        formValue[valueName] = quillFunc.getText(0)
+      } else if (source == 'user') {
+        formValue[valueName] = quillFunc.getText(0)
+      }
+    });
     quillFunc.root.style.maxHeight = "1000px"
-    quillFunc.root.style.minHeight = "300px"
+    quillFunc.root.style.minHeight = "100px"
   }, [])
   return (
     <div>
@@ -65,8 +75,9 @@ export default function QuillComponent({ text, withEditor, className }) {
       <div
         className={`bg-white ${className ? className : ""}`}
         ref={editorContainerRef}
-        dangerouslySetInnerHTML={{ __html: text }}
-      />
+      >
+        {text}
+      </div>
     </div>
   )
 }

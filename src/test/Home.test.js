@@ -1,10 +1,12 @@
-import Home from '../pages/LandingZone/Home';
-import { render } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
+import React from 'react'
+import "@testing-library/jest-dom/extend-expect";
+import { render } from '@testing-library/react'
+import ReporteGastos from '../pages/procesosLegales/ReporteGastos'
 
-test("Renderiza?", async () => {
-    const component = render(
-        <Home />
-    )
-    expect(component)
+describe('Home', () => {
+    it('renders a heading', () => {
+        const component = render(
+            <ReporteGastos />
+        )
+    })
 })

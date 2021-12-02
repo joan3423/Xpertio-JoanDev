@@ -3,11 +3,15 @@ import "../scss/style.default.scss"
 import React from 'react'
 import { wrapper } from "../redux/store"
 import Layout from "./Layout"
+import AbacProviderApp from "./AbacProviderApp"
 
 const MyApp = ({ Component, pageProps }) => (
-    <Layout {...pageProps}>
-        <Component {...pageProps} />
-    </Layout>
+    <AbacProviderApp>
+        <Layout {...pageProps}>
+            <Component {...pageProps} />
+        </Layout>
+    </AbacProviderApp>
+
 )
 
 export default wrapper.withRedux(MyApp);

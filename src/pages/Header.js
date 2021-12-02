@@ -24,7 +24,7 @@ export default function Header({ setSidebarShrink, sidebarShrink }) {
         >
           <FontAwesomeIcon icon={faAlignLeft} />
         </a>
-        <Link href="/LandingZone/Home" passHref>
+        <Link href="/Home" passHref>
           <div className="cursor-pointer" style={{ width: '200px' }}>
             <img src="/img/logo/Principal_pq.png" />
           </div>

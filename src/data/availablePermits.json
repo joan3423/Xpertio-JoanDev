@@ -1,0 +1,77 @@
+[
+    {
+        "value": "bodegas",
+        "label": "Bodegas",
+        "modulepermissions": [
+            { 
+                "label": "Registrar" 
+            },
+            {
+                "label": "Mostrar"
+            },
+            {
+                "label": "Actualizar"
+            }
+        ]
+    },
+    {
+        "value": "materiales",
+        "label": "Materiales",
+        "modulepermissions": [
+            { 
+                "label": "Registrar" 
+            },
+            {
+                "label": "Mostrar"
+            },
+            {
+                "label": "Actualizar"
+            }
+        ]
+    },
+    {
+        "value": "traslados",
+        "label": "Traslados",
+        "modulepermissions": [
+            { 
+                "label": "Registrar" 
+            },
+            {
+                "label": "Mostrar"
+            },
+            {
+                "label": "Actualizar"
+            }
+        ]
+    },
+    {
+        "value": "usuarios",
+        "label": "Usuarios",
+        "modulepermissions": [
+            { 
+                "label": "Registrar" 
+            },
+            {
+                "label": "Mostrar"
+            },
+            {
+                "label": "Actualizar"
+            }
+        ]
+    },
+    {
+        "value": "reporte de gastos",
+        "label": "Reporte de gastos",
+        "modulepermissions": [
+            { 
+                "label": "Registrar" 
+            },
+            {
+                "label": "Mostrar"
+            },
+            {
+                "label": "Actualizar"
+            }
+        ]
+    }
+]

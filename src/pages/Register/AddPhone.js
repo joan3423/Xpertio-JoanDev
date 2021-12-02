@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { useState } from "react"
 import { Card, Col, Container, Row } from "react-bootstrap"
-import AddPhoneForm from "../../pageComponents/Register/phoneForm/AddPhoneForm"
+import AddPhoneForm from "../../components/Register/phoneForm/AddPhoneForm"
 
 export async function getStaticProps() {
     return {

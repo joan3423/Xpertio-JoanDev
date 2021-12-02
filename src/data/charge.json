@@ -1,0 +1,12 @@
+[
+    {
+        "id": "1",
+        "name": "Administrador de operaciones",
+        "description": "Encargado de administrar y guiar todos los procesos relacionados con la produccion de los bienes y servicios"
+    },
+    {
+        "id": "2",
+        "name": "Auxiliar de archivo",
+        "description": "Encargado de diligenciar formularios que la empresa requiera en el software"
+    }
+]

@@ -14,7 +14,7 @@ export default function Pill({ data, icon, color, className, fullHeight }) {
         </div>
       </div>
 
-      <div className={`icon text-white p-3 bg-${color}`}>
+      <div className={`icon text-white p-3 ${color}`}>
         {icon &&
           <FontAwesomeIcon icon={icon} />
         }

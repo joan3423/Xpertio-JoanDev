@@ -5,3 +5,27 @@
     background: $gray-800;
     border: none;
 }
+.p-input {
+	padding: 1.1rem 0.75rem;
+}
+.background-primary {
+	background-color: $xpertio-primary;
+}
+.border-input-info {
+	border: solid $xpertio-primary;
+}
+.bakground-ticket {
+	background-image: repeating-linear-gradient(270deg, grey, transparent 10px);
+	height: 2px;
+	opacity: 0.5;
+}
+.text-right {
+	text-align: right !important;
+}
+.custom-btn {
+	background-color: #ffb92d50 !important;
+}
+.separator {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+

@@ -52,3 +52,35 @@
         table-layout: fixed;
     }
 }
+.bg-hover-gradient-primary:hover [class*=text-]:not(.exclude) {
+    color: white !important;
+    background-color: rgba(0, 0, 0, 0.651) !important;
+}
+.modules-selector {
+    .icon-color{
+        color: #ffb92d !important;
+    }
+    &:hover {
+        color: black !important;
+        .hover-btn{
+            color: #bebebe !important;
+        }
+        
+    }
+    &::before {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        content: "";
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s;
+        opacity: 0;
+        background: -webkit-gradient(linear, right top, left top, from(#ffb92daf), to(#ffb92daf)) !important;
+        background: -webkit-linear-gradient(right, #ffb92daf, #ffb92daf) !important;
+        background: linear-gradient(to left, #ffb92daf, #ffb92d) !important;
+        z-index: -1;
+    }
+}
